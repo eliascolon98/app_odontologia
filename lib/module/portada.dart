@@ -15,7 +15,7 @@ class Portada extends StatelessWidget {
           child: Column(
             children: [
               Image.asset('assets/logo_udc.jpg'),
-              const SizedBox(height: 10),
+              // const SizedBox(height: 10),
               const Text(
                 'DPM',
                 style: TextStyle(
@@ -24,53 +24,71 @@ class Portada extends StatelessWidget {
                   color: const Color.fromARGB(255, 1, 1, 101),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               const Text(
                 'Martha Carmona Lorduy\nEstomatóloga',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               const Text(
-                'Kimberly Hernández Gutiérrez\nResidente de estomatología y cirugía oral',
+                'Laura Werner\nEstomatóloga',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               const Text(
                 'Maria José Vasquez Viana\nResidente de estomatología y cirugía oral',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 20),
-              const Text(
-                'Vanessa Peralta Henao\nResidente de estomatología y cirugía oral',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               const Text(
                 'Kimberly Hernández Gutiérrez\nResidente de estomatología y cirugía oral',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 30),
-              // Image.asset('assets/icono/icono.jpeg'),
+              const SizedBox(height: 10),
+              const Text(
+                'Vanessa Peralta Henao\nResidente de estomatología y cirugía oral',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+
+              const SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 5,
+                ),
+                child: InkWell(
+                  child: const Hero(
+                    tag: 'hero-rectangle',
+                    child: Image(
+                      image: AssetImage(
+                        'assets/portada.jpeg',
+                      ),
+                    ),
+                  ),
+                  onTap: () => zoomImage(context),
+                ),
+              ),
+              const SizedBox(height: 10),
               InkWell(
                 child: Container(
                   decoration: BoxDecoration(
@@ -81,7 +99,7 @@ class Portada extends StatelessWidget {
                   height: 60,
                   child: const Center(
                     child: Text(
-                      'Empezemos',
+                      'Empecemos',
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.white,
@@ -99,4 +117,28 @@ class Portada extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> zoomImage(context) async {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return Dialog(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        child: SizedBox(
+          width: double.infinity,
+          height: 400,
+          child: InteractiveViewer(
+            child: const Hero(
+              tag: 'hero-rectangle',
+              child: Image(
+                image: AssetImage('assets/portada.jpeg'),
+              ),
+            ),
+          ),
+        ),
+      );
+    },
+  );
 }
