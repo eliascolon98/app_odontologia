@@ -17,16 +17,17 @@ class Portada extends StatelessWidget {
               Image.asset('assets/logo_udc.jpg'),
               // const SizedBox(height: 10),
               const Text(
-                'DPM',
+                'DESÓRDENES POTENCIALMENTE MALIGNOS',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 28,
+                  fontSize: 21,
                   color: const Color.fromARGB(255, 1, 1, 101),
                 ),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 10),
               const Text(
-                'Martha Carmona Lorduy\nEstomatóloga',
+                'Martha Carmona Lorduy\nEstomatóloga, magister en educación.',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
